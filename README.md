@@ -12,9 +12,21 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste todos os jogos disponíveis para a plataforma Xbox One. (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+      SELECT * FROM vgsales_pbi where platform='XOne';
      ```
    - **Resultado**
+
+   *Name |	Platform | Year	| Genre |	Publisher |	NA_Sales |	EU_Sales | 	JP_Sales |	Global_Sales*
+
+   ReCore	| XOne | 2016,0 |	Action |	Microsoft Game Studios |	0,06 |	0,03  |	0,0 |	0,1
+
+   Tom Clancy's The Division |	XOne |	2016,0 | Shooter |	Ubisoft |	1,2	0,62	| 0,0 |	2,01
+   
+   Valentino Rossi: The Game |	XOne |	2016,0 |	Racing |	Namco Bandai Games |	0,0 |	0,02 | 0,0	0,02
+   
+   The Technomancer	| XOne | 2016,0	| Role-Playing |	Focus Home Interactive |	0,01 |	0,01 |	0,0 |	0,02
+   
+   Dead Island Definitive Collection |	XOne |	2016,0 |	Action |	Deep Silver |	0,02 |	0,02 |	0,0 |	0,04
     
 
 
@@ -22,19 +34,44 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste todos os jogos do gênero "Ação" que foram lançados após 2010.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+    SELECT * FROM vgsales_pbi where genre='Action' AND year >2010.0;
      ```
    - **Resultado**
-    
+
+  *Name |	Platform | Year	| Genre |	Publisher |	NA_Sales |	EU_Sales | 	JP_Sales |	Global_Sales*
+
+  Brothers Conflict: Precious Baby |	PSV |	2017,0 |	Action |	Idea Factory |	0,0 |	0,0 |	0,01 |	0,01
+
+  Lego Star Wars: The Force Awakens |	PS4 |	2016,0 |	Action |	Warner Bros. Interactive Entertainment |	0,14 | 0,32 |	0,0	| 0,54
+
+  Gundam Breaker 3 | PS4 |	2016,0 |	Action |	Namco Bandai Games |	0,0 |	0,0 |	0,09 |	0,09
+
+  Taiko no Tatsujin: Don Don! Mystery Adventure | 3DS |	2016,0 |	| Action |	Namco Bandai Games |	0,0 |	0,0 |	0,09 | 0,09
+
+  ReCore	| XOne | 2016,0 |	Action |	Microsoft Game Studios |	0,06 |	0,03 |	0,0 |	0,1
 
 
 3. **Jogos mais recentes**:
    - **Enunciado**: Liste os 5 jogos mais recentes lançados.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+    SELECT * FROM vgsales_pbi ORDER BY year DESC LIMIT 5;
      ```
    - **Resultado**
+
+  *Name |	Platform | Year	| Genre |	Publisher |	NA_Sales |	EU_Sales | 	JP_Sales |	Global_Sales*
+
+  Imagine: Makeup Artist | 	DS |	2020,0 |	Simulation |	Ubisoft |	0,27 |	0,0 |	0,0 |	0,29 |
+
+  Phantasy Star Online 2 Episode 4: Deluxe Package |	PS4 |	2017,0 | Role-Playing |	Sega | 0,0 | 0,0 |	0,03 | 0,03
+
+  Brothers Conflict: Precious Baby | PSV | 2017,0 |	Action | Idea Factory |	0,0 |	0,0 |	0,01 |	0,01
+
+  Phantasy Star Online 2 Episode 4: Deluxe Package |	PSV |	2017,0 |	Role-Playing |	Sega |	0,0 | 0,0 |	0,01 |	0,01
+
+  Hyakka Hyakurou: Sengoku Ninpoujou |	PSV |	2016,0 |	Adventure	| D3Publisher |	0,0 |	0,0 |	0,02 |	0,02
+
+
     
 
 
@@ -42,10 +79,26 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
    - **Enunciado**: Liste os 5 jogos mais antigos.  (copie e cole o comando e as 5 primeiras linhas do resultado aqui)
    - **Query**:
      ```sql
-      
+    SELECT * FROM vgsales_pbi ORDER BY year ASC LIMIT 5;
      ```
    - **Resultado**
-    
+
+  *Name |	Platform | Year	| Genre |	Publisher |	NA_Sales |	EU_Sales | 	JP_Sales |	Global_Sales*
+
+ Bridge |	2600 |	1980,0 |	Misc |	Activision |	0,25 |	0,02 |	0,0 |	0,27
+
+ Freeway |	2600 |	1980,0 |	Action |	Activision |	0,32 |	0,02 |	0,0 |	0,34
+
+ Defender |	2600 |	1980,0 |	Misc |	Atari |	0,99 |	0,05 |	0,0 |	1,05
+
+Kaboom! |	2600 |	1980,0 |	Misc |	Activision |	1,07 |	0,07 |	0,0 |	1,15
+
+ Boxing | 2600 |	1980,0 |	Fighting | Activision |	0,72 |	0,04 | 0,0 | 0,77
+
+
+
+
+
 
 
 5. **Jogos de Aventura com mais vendas na América do Norte**:
@@ -55,7 +108,15 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
       
      ```
    - **Resultado**
-    
+
+   *Name |	Platform | Year	| Genre |	Publisher |	NA_Sales |	EU_Sales | 	JP_Sales |	Global_Sales*
+
+   Mario Kart DS | DS | 2005,0 |	Racing |	Nintendo |	9,81 | 	7,57 |	4,13 |	23,42
+
+   Call of Duty: Black Ops |	X360 |	2010,0 |	Shooter	Activision |	9,67 |	3,73 |	0,11 |	14,64
+
+   Grand Theft Auto V |	X360 |	2013,0 |	Action |	Take-Two Interactive |	9,63 |	5,31 |	0,06 |	16,38
+
 
 
 	 
@@ -66,8 +127,23 @@ Iremos utilizar a plataforma https://sqliteonline.com/ para treinar comandos SQL
       
      ```
    - **Resultado**
-    
 
+   *Name |	Platform | Year	| Genre |	Publisher |	NA_Sales |	EU_Sales | 	JP_Sales |	Global_Sales*
+
+   Phantasy Star Online 2 Episode 4: Deluxe Package	| PS4 |	2017,0 |	Role-Playing |	Sega |	0,0 |	0,0 |	0,03 |	0,03
+
+   Phantasy Star Online 2 Episode 4: Deluxe Package |	PSV |	2017,0 |	Role-Playing |	Sega |	0,0 |	0,0 |	0,01 |	0,01
+
+   Persona 5 | PS3 |	2016,0 | Role-Playing |	Unknown |	0,0 |	0,0 |	0,1 |	0,1
+
+   Caligula |	PSV |	2016,0 |	Role-Playing |	FuRyu |	0,0 |	0,0 |	0,05 |	0,05
+
+   The Technomancer |	XOne |	2016,0 |	Role-Playing |	Focus Home Interactive |	0,01 |	0,01 |	0,0 |	0,02
+  
+
+  
+  
+  
 
 
 ### Exercício 2: Python - Sqlite
